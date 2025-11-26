@@ -184,7 +184,7 @@ async function main() {
             play.src = "assets\\img\\002-pause.png";
 
             song_name = decodeURI(currentSong.src.split("/").slice(-1))
-            
+
             document.querySelector(".songinfo").innerHTML = `<div class="scroll-strip">
                         <span>${song_name}</span>
                     </div>`
@@ -257,19 +257,21 @@ async function main() {
     const leftPanel = document.querySelector(".left");
 
     menuBtn.addEventListener("click", () => {
-        const isOpen = leftPanel.classList.contains("open");
+        const isOpen = leftPanel.classList.contains("left-open");
 
         if (!isOpen) {
-            leftPanel.style.left = 0;
-            leftPanel.classList.add("open");
-            menuBtn.src = "assets\\img\\close.png";
-            menuBtn.style = "cursor : pointer"
-        } else {
-            leftPanel.style.left = "-100%";
-            leftPanel.classList.remove("open");
-            menuBtn.style = "cursor : pointer"
-            menuBtn.src = "assets\\img\\hamburger.png";
-        }
+        leftPanel.classList.remove("left-close");
+        leftPanel.classList.add("left-open");
+
+        menuBtn.src = "assets/img/close.png";
+        menuBtn.style.cursor = "pointer";
+    } else {
+        leftPanel.classList.remove("left-open");
+        leftPanel.classList.add("left-close");
+
+        menuBtn.src = "assets/img/hamburger.png";
+        menuBtn.style.cursor = "pointer";
+    }
     });
 }
 
