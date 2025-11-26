@@ -1,0 +1,55 @@
+.flex {
+    display: flex;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.fill{
+    fill: white;
+}
+
+.m-1{
+    margin: 4px;
+}
+
+.p-1{
+    padding: 4px;
+}
+
+.b-1{
+    border-radius: 8px;
+}
+
+.inv{
+    filter: invert();
+}
+
+/* Hide scrollbar until needed */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+/* Show thumb when hovering or scrolling */
+.song-list:hover::-webkit-scrollbar-thumb,
+.album-container:hover::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb:active {
+    background: var(--border);
+}
