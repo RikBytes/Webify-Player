@@ -183,11 +183,14 @@ async function main() {
             currentSong.play();
             play.src = "assets\\img\\002-pause.png";
 
-            song_name = allSongs[index].name
+            song_name = decodeURI(currentSong.src.split("/").slice(-1))
+            
             document.querySelector(".songinfo").innerHTML = `<div class="scroll-strip">
                         <span>${song_name}</span>
                     </div>`
-            if (activeLi) activeLi.classList.add("song-active");
+            if (activeLi) {
+                activeLi.classList.add("song-active");
+            }
 
         } else {
             currentSong.pause();
