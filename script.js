@@ -177,11 +177,12 @@ async function main() {
     // event listener for play pause and next
     play.addEventListener("click", () => {
         const index = allSongs.findIndex(song => currentSong.src.includes(song.songurl));
+        const activeLi = Array.from(document.querySelectorAll(".song-list li"))
+            .find(li => currentSong.src.includes(li.dataset.url));
         if (currentSong.paused) {
             currentSong.play();
             play.src = "assets\\img\\002-pause.png";
 
-            const index = allSongs.findIndex(song => song.songurl === decodeURI(currentSong.src));
             song_name = allSongs[index].name
             document.querySelector(".songinfo").innerHTML = `<div class="scroll-strip">
                         <span>${song_name}</span>
